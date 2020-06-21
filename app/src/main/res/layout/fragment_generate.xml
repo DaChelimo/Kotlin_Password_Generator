@@ -22,69 +22,48 @@
 
         <EditText
             android:id="@+id/enter_website_edit"
-            android:layout_width="149dp"
-            android:layout_height="45dp"
             android:layout_marginTop="8dp"
-            android:ems="10"
-            android:hint="Gmail"
+            android:hint="@string/website_text"
             android:inputType="textPersonName"
-            android:textAlignment="center"
             app:layout_constraintStart_toEndOf="@+id/enter_website_text"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintTop_toTopOf="parent"
+            style="@style/default_edit_style" />
 
         <TextView
-            android:id="@+id/how_many_char_text"
+            android:id="@+id/enter_password_text"
             style="@style/default_text_style"
-            android:layout_width="225dp"
-            android:layout_height="40dp"
-            android:layout_marginStart="4dp"
-            android:layout_marginTop="24dp"
-            android:text="@string/how_long_text"
-            android:textSize="16sp"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/enter_website_text" />
-
-        <Spinner
-            android:id="@+id/spinner_char"
-            android:layout_width="150dp"
-            android:layout_height="wrap_content"
-            app:layout_constraintBottom_toBottomOf="@+id/how_many_char_text"
-            app:layout_constraintStart_toEndOf="@+id/how_many_char_text"
-            app:layout_constraintTop_toTopOf="@+id/how_many_char_text" />
-
-        <TextView
-            android:id="@+id/result_text"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textSize="30sp"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
+            android:layout_marginStart="4dp"
+            android:text="@string/how_long_text"
+            app:layout_constraintBottom_toBottomOf="@+id/enter_password_edit"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            tools:text="12" />
+            app:layout_constraintTop_toTopOf="@+id/enter_password_edit" />
 
         <Button
             android:id="@+id/add_btn"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/add_text"
-            android:visibility="gone"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/result_text" />
-
-        <Button
-            android:id="@+id/generate_btn"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Generate"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.501"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.269" />
+            app:layout_constraintVertical_bias="0.39" />
+
+        <EditText
+            android:id="@+id/enter_password_edit"
+            style="@style/default_edit_style"
+            android:layout_width="149dp"
+            android:layout_height="45dp"
+            android:layout_marginStart="3dp"
+            android:layout_marginTop="8dp"
+            android:ems="10"
+            android:hint="@string/password_text"
+            android:inputType="textPassword"
+            app:layout_constraintStart_toEndOf="@+id/enter_password_text"
+            app:layout_constraintTop_toBottomOf="@+id/enter_website_edit" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

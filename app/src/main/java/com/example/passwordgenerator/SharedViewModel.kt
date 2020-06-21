@@ -2,18 +2,15 @@ package com.example.passwordgenerator
 
 import android.app.Application
 import androidx.lifecycle.AndroidViewModel
-import androidx.lifecycle.LiveData
-import androidx.lifecycle.Transformations
 import com.example.passwordgenerator.database.PasswordDataClass
 import com.example.passwordgenerator.database.PasswordDatabaseDao
-import com.example.passwordgenerator.formatNights
 import kotlinx.coroutines.*
 
 class SharedViewModel(private val dataSource: PasswordDatabaseDao, application: Application) : AndroidViewModel(application) {
 
     private val viewModelJob = Job()
     private val uiScope = CoroutineScope(Dispatchers.Main + viewModelJob)
-    var newPassword = ""
+    var password = ""
     var website = ""
       
     private val latestPassword = dataSource.previousPassword()
@@ -21,7 +18,7 @@ class SharedViewModel(private val dataSource: PasswordDatabaseDao, application: 
 
     fun insertPassword(){
         uiScope.launch {
-            val newPassword = PasswordDataClass(password = newPassword, website = website)
+            val newPassword = PasswordDataClass(password = password, website = website)
             if (latestPassword.value?.website != newPassword.website) {
                 suspendInsertPassword(newPassword)
             }
@@ -31,7 +28,6 @@ class SharedViewModel(private val dataSource: PasswordDatabaseDao, application: 
     private suspend fun suspendInsertPassword(newPassword: PasswordDataClass){
         withContext(Dispatchers.IO){
             dataSource.insertName(newPassword)
-            this@SharedViewModel.newPassword = ""
         }
     }
 

@@ -4,7 +4,7 @@
     <string name="title_gen_pass">Generate</string>
     <string name="title_all_pass">All Passwords</string>
     <string name="enter_website_text">"Enter the website name: "</string>
-    <string name="how_long_text">"How many characters should your password contain: "</string>
+    <string name="how_long_text">"Enter your password: "</string>
 
     <string name="title"><![CDATA[<h3>HERE ARE YOUR PASSWORDS</h3>]]></string>
     <string name="website_intro"><![CDATA[<b>Website:</b>]]></string>
@@ -16,6 +16,8 @@
     <string name="password_string">Password:</string>
     <string name="website">Website:</string>
     <string name="strength_string">Strength:</string>
+    <string name="password_text">password</string>
+    <string name="website_text">website</string>
 
     <string-array name="optionsList">
         <item>6</item>
