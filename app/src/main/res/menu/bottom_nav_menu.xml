@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/generatePassFragment"
+        android:icon="@drawable/ic_add_circle_outline_black_24dp"
+        android:title="@string/title_gen_pass" />
+
+    <item
+        android:id="@+id/homeFragment"
+        android:icon="@drawable/ic_home_black_24dp"
+        android:title="@string/title_home" />
+    <item
+        android:id="@+id/formerPasswordFragment"
+        android:icon="@drawable/ic_history_black_24dp"
+        android:title="@string/title_all_pass" />
+
+</menu>
