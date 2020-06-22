@@ -28,9 +28,11 @@ class FormerPasswordFragment : Fragment() {
         val application = requireNotNull(this.activity).application
         val dataSource = PasswordDataBase.getInstance(application)!!.passwordDatabaseDao
 
-
         binding = DataBindingUtil.inflate(inflater, R.layout.fragment_all_passwords, container, false)
-        viewModel = ViewModelProvider(this, SharedViewModelFactory(dataSource, application)).get(SharedViewModel::class.java)
+
+        val thisView = binding.root
+
+        viewModel = ViewModelProvider(this, SharedViewModelFactory(dataSource, thisView)).get(SharedViewModel::class.java)
 
         binding.lifecycleOwner = this
         binding.sharedViewModel = viewModel

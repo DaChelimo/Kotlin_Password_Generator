@@ -52,7 +52,9 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toEndOf="@+id/website_text"
             app:layout_constraintTop_toTopOf="@+id/website_text"
-            tools:text="www.example.com" />
+            tools:text="www.example.com"
+            app:websiteInput="@{passWord}"
+            />
 
         <TextView
             android:id="@+id/password_input"
@@ -64,7 +66,8 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toEndOf="@+id/password_text"
             app:layout_constraintTop_toTopOf="@+id/password_text"
-            tools:text="abc1234" />
+            tools:text="abc1234"
+            app:passwordInput="@{passWord}"/>
 
         <TextView
             android:id="@+id/strength_input"
@@ -72,10 +75,12 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="8dp"
             android:layout_marginEnd="16dp"
+            android:textColor="#F37953"
             app:layout_constraintBottom_toBottomOf="@+id/strength_text"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toEndOf="@+id/strength_text"
-            tools:text="Strong" />
+            tools:text="Strong"
+            app:strengthInput="@{passWord}"/>
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

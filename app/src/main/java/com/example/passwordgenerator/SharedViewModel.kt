@@ -1,12 +1,16 @@
 package com.example.passwordgenerator
 
-import android.app.Application
-import androidx.lifecycle.AndroidViewModel
+import android.view.View
+import androidx.lifecycle.ViewModel
 import com.example.passwordgenerator.database.PasswordDataClass
 import com.example.passwordgenerator.database.PasswordDatabaseDao
+import com.google.android.material.snackbar.Snackbar
 import kotlinx.coroutines.*
 
-class SharedViewModel(private val dataSource: PasswordDatabaseDao, application: Application) : AndroidViewModel(application) {
+class SharedViewModel(
+    private val dataSource: PasswordDatabaseDao,
+    val view: View
+) : ViewModel() {
 
     private val viewModelJob = Job()
     private val uiScope = CoroutineScope(Dispatchers.Main + viewModelJob)
@@ -46,6 +50,7 @@ class SharedViewModel(private val dataSource: PasswordDatabaseDao, application: 
     fun clearAll(){
         uiScope.launch {
             suspendClearAll()
+            Snackbar.make(view, "All your data is gone forever", Snackbar.LENGTH_SHORT).show()
         }
     }
 

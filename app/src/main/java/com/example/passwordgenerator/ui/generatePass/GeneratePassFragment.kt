@@ -4,6 +4,7 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
@@ -26,7 +27,9 @@ class GeneratePassFragment : Fragment() {
         val application = requireNotNull(this.activity).application
         val dataSource = PasswordDataBase.getInstance(application)!!.passwordDatabaseDao
 
-        viewModel = ViewModelProvider(this, SharedViewModelFactory(dataSource, application)).get(
+        val thisView = binding.root
+
+        viewModel = ViewModelProvider(this, SharedViewModelFactory(dataSource, thisView)).get(
             SharedViewModel::class.java)
 
 
@@ -35,7 +38,9 @@ class GeneratePassFragment : Fragment() {
                 viewModel.website = binding.enterWebsiteEdit.text.toString().trim()
                 viewModel.password = binding.enterPasswordEdit.text.toString().trim()
                 viewModel.insertPassword()
-                Snackbar.make(this.requireView(), "Website and password have been added", Snackbar.LENGTH_SHORT).show()
+                Toast.makeText(this.context, "Website and password have been added", Toast.LENGTH_SHORT).apply {
+                    this.show()
+                }
             }
             else{
                 Snackbar.make(this.requireView(), "Please enter valid input", Snackbar.LENGTH_SHORT).show()

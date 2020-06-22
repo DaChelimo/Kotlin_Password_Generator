@@ -29,21 +29,8 @@ class PasswordsAdapter: ListAdapter<PasswordDataClass, ViewHolder>(PasswordDiffU
 class ViewHolder(private val binding: RecyclerItemBinding): RecyclerView.ViewHolder(binding.root){
 
     fun bind(item: PasswordDataClass) {
-        binding.websiteInput.text = item.website
-        binding.passwordInput.text = item.password
-        binding.strengthInput.text = if (item.password.length >= 10) {
-            "Strong"
-        } else {
-            "Weak"
-        }
-
-        binding.strengthInput.setTextColor(
-            if (binding.strengthInput.text == "Strong") {
-                Color.GREEN
-            } else {
-                rgb(205, 92, 92)
-            }
-        )
+        binding.passWord = item
+        binding.executePendingBindings()
     }
 
     companion object {
